@@ -13,7 +13,8 @@ class MainActivity : AppCompatActivity() {
         val preferenceHelper = PreferenceHelper(this)
         preferenceHelper.userID = Int.MAX_VALUE
         preferenceHelper.userLoggedIn = true
-        preferenceHelper.userName = "Droid Log"
+//        preferenceHelper.userName = "Droid Log"
         Log.d(TAG, String.format(" %s %d %b", preferenceHelper.userName, preferenceHelper.userID, preferenceHelper.userLoggedIn))
+        PrefTest(this)
     }
 }

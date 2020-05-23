@@ -11,8 +11,12 @@ import android.content.Context
  *
  * Currently Preference helper supports Integer, Boolean and String
  */
-class PreferenceHelper(context: Context) {
-    var userName: String by context.sharedPreferenceString()
-    var userID: Int by context.sharedPreferenceInt()
-    var userLoggedIn: Boolean by context.sharedPreferenceBoolean()
+class PreferenceHelper(
+    context: Context,
+    sharedPrefName: String = context.applicationInfo.packageName
+) {
+    private val sharedPreferences = context.getSharedPreferences(sharedPrefName, 0)
+    var userName: String by sharedPreferences.sharedPreferenceString(defaultValue = "Someone")
+    var userID: Int by sharedPreferences.sharedPreferenceInt()
+    var userLoggedIn: Boolean by sharedPreferences.sharedPreferenceBoolean()
 }
